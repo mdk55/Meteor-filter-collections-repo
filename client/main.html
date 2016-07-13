@@ -1,0 +1,52 @@
+<head>
+  <title>simple</title>
+</head>
+
+<body style="background:#eee">
+  <div class="container">
+  <div class="row">
+  <table class="table">
+  <tr>
+  <th>Entry</th>
+  <th>Date</th>
+  </tr>
+  {{#each fcResults}}
+  <tr><td>{{name}}</td><td>{{createdAt}}</td></tr>
+  {{/each}}
+  </table>
+  </div>
+  <div class="row">
+    <div>
+      <button class="btn btn-danger" type="reset" id="reset">Reset DB</button> 
+      <button class="btn btn-success" type="fill" id="fill">Fill DB</button>
+      <!-- <a href="#" class="fc-filter" data-fc-filter-field="name" data-fc-filter-value="entry-30" >Filter name</a>
+      <a href="#" class="fc-filter" data-fc-filter-field="createdAt" data-fc-filter-value="11/5/2016" >Filter Today</a> -->
+      <select id="filterSelect" multiple="multiple" data-fc-filter-field="name" class="fc-filter">
+      {{#each getEntries}}
+      <option value='{{name}}'>{{name}}</option>
+      {{/each}}
+      </select>
+      <select id="dateSelect" multiple="multiple" data-fc-filter-field="created_at" class="fc-filter">
+      {{#each getEntries}}
+      <option value='{{createdAt}}'>{{createdAt}}</option>
+      {{/each}}
+      </select>
+
+    </div>
+  </div>
+  <div class = "row">
+  {{#if fcFilterActive}}
+    <h4>Active Filters</h4>
+  {{/if}}
+{{#each fcFilterActive}}
+{{#each this.value}}
+  <button value={{this}} class="clearFilter btn btn-success">{{this}}</button>
+  {{/each}}
+{{/each}}
+{{#if fcFilterActive}}
+<button class="btn btn-info" href="#" id="reset">Reset all filters</button>
+{{/if}}
+  </div>
+  </div>
+</body>
+
