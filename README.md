@@ -1,5 +1,5 @@
-# meteor-filter-collections
-prototype using meteor filter collections package
+
+prototype using meteor filter collections package and updated to meteor 1.3.4.4
 
 this is a sample app from a previous sample app testing the flexibility and usage writes of the filter collections package. 
 
